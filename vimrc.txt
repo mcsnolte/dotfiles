@@ -1,0 +1,76 @@
+" Map key to toggle opt
+function MapToggle(key, opt)
+  let cmd = ':set '.a:opt.'! \| set '.a:opt."?\<CR>"
+  exec 'nnoremap '.a:key.' '.cmd
+  exec 'inoremap '.a:key." \<C-O>".cmd
+endfunction
+command -nargs=+ MapToggle call MapToggle(<f-args>)
+
+set history=100         " keep 100 lines of history
+set ruler               " show the cursor position
+syntax on               " syntax highlighting
+" set background=dark
+" colorscheme solarized
+" colorscheme darkblue
+colorscheme ron
+
+set hlsearch            " highlight the last searched term
+filetype plugin on      " use the file type plugins
+au BufNewFile,BufRead *.psgi set filetype=perl
+
+set smartindent
+set tabstop=4
+set shiftwidth=4
+set nu
+set viminfo='10,\"100,:20,%,n~/.viminfo
+
+"set iskeyword=@,58
+nmap _M :!xdg-open https://metacpan.org/module/<cword><CR>
+nmap _H :!perlfind <cword><CR>
+
+" move lines
+nnoremap <C-j> :m+<CR>==
+nnoremap <C-k> :m-2<CR>==
+inoremap <C-j> <Esc>:m+<CR>==gi
+inoremap <C-k> <Esc>:m-2<CR>==gi
+vnoremap <C-j> :m'>+<CR>gv=gv
+vnoremap <C-k> :m-2<CR>gv=gv
+
+MapToggle <F2> paste
+map <F3> mf:%!perltidy<CR>:w<CR>`fzz
+map <F4> :w<CR>:!perl -Ilib -c %;podchecker %;perlcritic %<CR>
+map <F5> :w<CR>:!perl -Ilib % 2>&1 \| tee /tmp/perl-out.txt \| less<CR>
+map <F6> :!less /tmp/perl-out.txt<CR>
+MapToggle <F7> hlsearch
+MapToggle <F8> wrap
+
+" git blame
+vmap _B :<C-U>!git blame <C-R>=expand("%:p") <CR> \| sed -n <C-R>=line("'<") <CR>,<C-R>=line("'>") <CR>p <CR>
+
+" When editing a file, always jump to the last cursor position
+autocmd BufReadPost *
+\ if ! exists("g:leave_my_cursor_position_alone") |
+\ if line("'\"") > 0 && line ("'\"") <= line("$") |
+\ exe "normal g'\"" |
+\ endif |
+\ endif
+
+" Support for scroll wheel
+map <M-Esc>[62~ <MouseDown>
+map! <M-Esc>[62~ <MouseDown>
+map <M-Esc>[63~ <MouseUp>
+map! <M-Esc>[63~ <MouseUp>
+map <M-Esc>[64~ <S-MouseDown>
+map! <M-Esc>[64~ <S-MouseDown>
+map <M-Esc>[65~ <S-MouseUp>
+map! <M-Esc>[65~ <S-MouseUp>
+
+set mouse=a
+
+
+" Show trailing whitespace
+
+highlight ExtraWhitespace ctermbg=red guibg=red
+au InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$/
+au InsertLeave * match ExtraWhitespace /\s\+$/
+
