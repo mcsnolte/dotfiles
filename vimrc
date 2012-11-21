@@ -45,7 +45,7 @@ vnoremap <C-j> :m'>+<CR>gv=gv
 vnoremap <C-k> :m-2<CR>gv=gv
 
 MapToggle <F2> paste
-map <F3> mf:%!perltidy<CR>:w<CR>`fzz
+map <F3> mf:%!perltidy<CR>:%!podtidy<CR>:w<CR>`fzz
 map <F4> :w<CR>:!perl -Ilib -c %;podchecker %;perlcritic %<CR>
 map <F5> :w<CR>:!perl -Ilib % 2>&1 \| tee /tmp/perl-out.txt \| less<CR>
 map <F6> :!less /tmp/perl-out.txt<CR>
