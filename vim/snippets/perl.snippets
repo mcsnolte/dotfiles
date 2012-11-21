@@ -1,0 +1,46 @@
+# shebang
+snippet #! usr/bin/env perl
+	#!/usr/bin/env perl
+
+# From aschrab
+# Table class for DBIx::Class
+snippet dbit
+	use base 'Blackjack::Schema::Result';
+
+	__PACKAGE__->table('${1:`CamelToUnderscore(Filename())`}');
+	__PACKAGE__->add_columns(
+		${2:$1_id} => { data_type => '${3:serial}', },
+		${4}
+	);
+
+	__PACKAGE__->set_primary_key(qw{$2});
+
+# From aschrab
+# Column for DBIx::Class
+snippet dbic
+	${1:column} => {
+		data_type => '${2:varchar}',
+		size => ${3:undef},
+		is_nullable => ${4:0},
+	},${5}
+
+# Moose
+# class
+snippet moose
+	package ${1:`Filename()`};
+
+	use Moose;
+	use namespace::autoclean;
+
+	${2}
+
+	__PACKAGE__->meta->make_immutable;
+
+# has
+snippet has
+	has ${1:attribute} => (
+		is      => '${2:ro}',
+		isa     => '${3:Str}',
+		default => sub { ${4} },${5}
+	);
+

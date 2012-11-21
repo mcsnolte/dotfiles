@@ -10,3 +10,9 @@
 [submodule "vim/bundle/vim-powerline"]
 	path = vim/bundle/vim-powerline
 	url = git://github.com/Lokaltog/vim-powerline.git
+[submodule "vim/bundle/snipmate.vim"]
+	path = vim/bundle/snipmate.vim
+	url = git://github.com/msanders/snipmate.vim.git
+[submodule "vim/bundle/perlomni.vim"]
+	path = vim/bundle/perlomni.vim
+	url = git://github.com/c9s/perlomni.vim.git
