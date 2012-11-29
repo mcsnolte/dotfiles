@@ -1,7 +1,14 @@
 # shebang
 snippet #! usr/bin/env perl
 	#!/usr/bin/env perl
-
+# dumper
+snippet dump
+	use Data::Show;
+	show ${1:%data};
+# Dzil
+# abstract
+snippet abst
+	# ABSTRACT: ${1}
 # From aschrab
 # Table class for DBIx::Class
 snippet dbit
@@ -36,6 +43,7 @@ snippet moose
 
 	__PACKAGE__->meta->make_immutable;
 
+	1;
 # has
 snippet has
 	has ${1:attribute} => (
