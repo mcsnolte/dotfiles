@@ -44,9 +44,9 @@ vnoremap <C-k> :m-2<CR>gv=gv
 
 MapToggle <F2> paste
 map <F3> mf:%!perltidy<CR>:%!podtidy<CR>:w<CR>`fzz
-map <F4> :w<CR>:!perl -Ilib -c %;podchecker %;perlcritic %<CR>
-map <F5> :w<CR>:!perl -Ilib % 2>&1 \| tee /tmp/perl-out.txt \| less<CR>
-map <F6> :!less /tmp/perl-out.txt<CR>
+map <F4> :w<CR>:!perl -Ilib -c %;podchecker %;perlcritic --theme corvisa %<CR>
+map <F5> :w<CR>:!script -c 'prove -lvmfo %' /tmp/last-prove.txt<CR>:!less -R -F +G /tmp/last-prove.txt<CR>
+map <F6> :!less -R /tmp/last-prove.txt<CR>
 MapToggle <F7> hlsearch
 MapToggle <F8> wrap
 
