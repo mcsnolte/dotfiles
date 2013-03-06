@@ -1,18 +1,32 @@
 [submodule "vim/bundle/ack.vim"]
 	path = vim/bundle/ack.vim
 	url = git://github.com/mileszs/ack.vim.git
+	ignore = untracked
 [submodule "vim/bundle/nerdcommenter"]
 	path = vim/bundle/nerdcommenter
 	url = git://github.com/scrooloose/nerdcommenter.git
+	ignore = untracked
 [submodule "vim/bundle/vim-fugitive"]
 	path = vim/bundle/vim-fugitive
 	url = git://github.com/tpope/vim-fugitive.git
+	ignore = untracked
 [submodule "vim/bundle/vim-powerline"]
 	path = vim/bundle/vim-powerline
 	url = git://github.com/Lokaltog/vim-powerline.git
+	ignore = untracked
 [submodule "vim/bundle/snipmate.vim"]
 	path = vim/bundle/snipmate.vim
 	url = git://github.com/msanders/snipmate.vim.git
+	ignore = untracked
 [submodule "vim/bundle/perlomni.vim"]
 	path = vim/bundle/perlomni.vim
 	url = git://github.com/c9s/perlomni.vim.git
+	ignore = untracked
+[submodule "vim/bundle/sytastic"]
+	path = vim/bundle/sytastic
+	url = git://github.com/scrooloose/syntastic.git
+	ignore = untracked
+[submodule "vim/bundle/tagbar"]
+	path = vim/bundle/tagbar
+	url = git://github.com/majutsushi/tagbar
+	ignore = untracked
