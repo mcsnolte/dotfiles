@@ -20,6 +20,14 @@ syntax on               " syntax highlighting
 " colorscheme darkblue
 colorscheme ron
 
+let g:syntastic_auto_jump=1
+let g:syntastic_mode_map = { "mode": "passive", "active_filetypes": [], "passive_filetypes": [] }
+let g:syntastic_perl_lib_path = './lib'
+let g:syntastic_error_symbol='✗'
+let g:syntastic_warning_symbol='⚠'
+let g:syntastic_perl_checkers=['perl','perlcritic']
+let g:syntastic_perl_perlcritic_args="--theme corvisa"
+
 set hlsearch            " highlight the last searched term
 filetype plugin on      " use the file type plugins
 au BufNewFile,BufRead *.psgi set filetype=perl
@@ -49,6 +57,7 @@ map <F5> :w<CR>:!script -c 'prove -lvmfo %' /tmp/last-prove.txt<CR>:!less -R -F 
 map <F6> :!less -R /tmp/last-prove.txt<CR>
 MapToggle <F7> hlsearch
 MapToggle <F8> wrap
+map <F9> :TagbarOpenAutoClose<CR>
 
 " git blame
 vmap _B :<C-U>!git blame <C-R>=expand("%:p") <CR> \| sed -n <C-R>=line("'<") <CR>,<C-R>=line("'>") <CR>p <CR>
