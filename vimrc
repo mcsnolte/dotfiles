@@ -51,7 +51,7 @@ vnoremap <C-j> :m'>+<CR>gv=gv
 vnoremap <C-k> :m-2<CR>gv=gv
 
 MapToggle <F2> paste
-map <F3> mf:%!perltidy<CR>:%!podtidy<CR>:w<CR>`fzz
+map <F3> mkHml:%!perltidy<CR>:%!podtidy<CR>:w<CR>`lzt`k
 map <F4> :w<CR>:!perl -Ilib -c %;podchecker %;perlcritic --theme corvisa %<CR>
 map <F5> :w<CR>:!script -c 'prove -lvmfo %' /tmp/last-prove.txt<CR>:!less -R -F +G /tmp/last-prove.txt<CR>
 map <F6> :!less -R /tmp/last-prove.txt<CR>
