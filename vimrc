@@ -50,6 +50,10 @@ inoremap <C-k> <Esc>:m-2<CR>==gi
 vnoremap <C-j> :m'>+<CR>gv=gv
 vnoremap <C-k> :m-2<CR>gv=gv
 
+" create pastie
+nnoremap <C-p> :!curl -s -F data=@% http://pastie.it.corp/ \| xclip -selection clipboard; xclip -selection clipboard -o<CR>
+vnoremap <C-p> <esc>:'<,'>:w !curl -s -F data=@- http://pastie.it.corp/ \| xclip -selection clipboard; xclip -selection clipboard -o<CR>
+
 MapToggle <F2> paste
 map <F3> mkHml:%!perltidy<CR>:%!podtidy<CR>:w<CR>`lzt`k
 map <F4> :w<CR>:!perl -Ilib -c %;podchecker %;perlcritic --theme corvisa %<CR>
