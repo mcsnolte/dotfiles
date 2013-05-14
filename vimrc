@@ -86,7 +86,7 @@ map! <M-Esc>[64~ <S-MouseDown>
 map <M-Esc>[65~ <S-MouseUp>
 map! <M-Esc>[65~ <S-MouseUp>
 
-set mouse=a
+set mouse=v
 
 
 " Show trailing whitespace
