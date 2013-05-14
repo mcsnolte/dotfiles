@@ -56,9 +56,9 @@ vnoremap <C-p> <esc>:'<,'>:w !curl -s -F data=@- http://pastie.it.corp/ \| xclip
 
 MapToggle <F2> paste
 map <F3> mkHml:%!perltidy<CR>:%!podtidy<CR>:w<CR>`lzt`k
-map <F5> :w<CR>:!script -c 'prove -lvmfo %' /tmp/last-prove.txt<CR>:!less -R -F +G /tmp/last-prove.txt<CR>
 " map <F4> :w<CR>:!perl -Ilib -c %;podchecker %;perlcritic --theme corvisa %<CR>
 map <F4> :SyntasticCheck<CR>
+map <F5> :w<CR>:!script -c 'HARNESS_ACTIVE=1 prove -lvmfo %' /tmp/last-prove.txt<CR>:!less -R -F +G /tmp/last-prove.txt<CR>
 map <F6> :!less -R /tmp/last-prove.txt<CR>
 MapToggle <F7> hlsearch
 MapToggle <F8> wrap
