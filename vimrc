@@ -55,7 +55,7 @@ nnoremap <C-p> :!curl -s -F data=@% http://pastie.it.corp/ \| xclip -selection c
 vnoremap <C-p> <esc>:'<,'>:w !curl -s -F data=@- http://pastie.it.corp/ \| xclip -selection clipboard; xclip -selection clipboard -o<CR>
 
 MapToggle <F2> paste
-map <F3> mkHml:%!perltidy<CR>:%!podtidy<CR>:w<CR>`lzt`k
+map <F3> :let t = winsaveview()<CR>:%!perltidy<CR>:%!podtidy<CR>:w<CR>:call winrestview(t)<CR>
 " map <F4> :w<CR>:!perl -Ilib -c %;podchecker %;perlcritic --theme corvisa %<CR>
 map <F4> :SyntasticCheck<CR>
 map <F5> :w<CR>:!script -c 'HARNESS_ACTIVE=1 prove -lvmfo %' /tmp/last-prove.txt<CR>:!less -R -F +G /tmp/last-prove.txt<CR>
