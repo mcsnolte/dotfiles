@@ -33,6 +33,8 @@ filetype plugin on      " use the file type plugins
 au BufNewFile,BufRead *.psgi set filetype=perl
 
 set smartindent
+set ignorecase
+set smartcase
 set tabstop=4
 set shiftwidth=4
 set nu
