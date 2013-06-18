@@ -1,0 +1,13 @@
+$_REPL->load_plugin($_) for qw/
+  DataPrinter
+  Editor
+  Interrupt
+  ReadLineHistory
+  Clipboard
+  CompletionDriver::Globals
+  CompletionDriver::INC
+  CompletionDriver::Keywords
+  CompletionDriver::LexEnv
+  CompletionDriver::Methods
+  CompletionDriver::Turtles
+  /;
