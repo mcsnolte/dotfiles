@@ -26,3 +26,25 @@
 	path = vim/bundle/tagbar
 	url = git://github.com/majutsushi/tagbar
 	ignore = untracked
+[submodule "vim/bundle/vim-surround"]
+	path = vim/bundle/vim-surround
+	url = git://github.com/tpope/vim-surround.git
+[submodule "curo"]
+	path = curo
+	url = git@github.com:omniti-labs/curo.git
+[submodule "vim/bundle/vim-snippets"]
+	path = vim/bundle/vim-snippets
+	url = git@github.com:honza/vim-snippets.git
+	ignore = untracked
+[submodule "vim/bundle/vim-snipmate"]
+	path = vim/bundle/vim-snipmate
+	url = git@github.com:garbas/vim-snipmate.git
+	ignore = untracked
+[submodule "vim/bundle/vim-addon-mw-utils"]
+	path = vim/bundle/vim-addon-mw-utils
+	url = git@github.com:MarcWeber/vim-addon-mw-utils.git
+	ignore = untracked
+[submodule "vim/bundle/tlib_vim"]
+	path = vim/bundle/tlib_vim
+	url = git@github.com:tomtom/tlib_vim.git
+	ignore = untracked
