@@ -1,10 +1,24 @@
-# shebang
-snippet #! usr/bin/env perl
-	#!/usr/bin/env perl
+# Log::Any
+snippet log
+	use Log::Any qw/$log/;
 # dumper
-snippet dump
+snippet show
 	use Data::Show;
 	show ${1:%data};
+# Data::Printer
+snippet p
+	use DDP;
+	p ${1:$data_r};
+# Debugging
+snippet debug
+	BEGIN {
+		$ENV{DBIC_TRACE}        = 1;
+		#$ENV{DBIC_STACK_TRACE}  = 1;
+		${1}$ENV{CATALYST_DEBUG}    = 1;
+	}
+# Timer
+snippet timer
+	my $t = time_scope( __PACKAGE__ . '::${1}' );
 # Dzil
 # abstract
 snippet abst
@@ -12,7 +26,12 @@ snippet abst
 # From aschrab
 # Table class for DBIx::Class
 snippet dbit
-	use base 'Blackjack::Schema::Result';
+	package `PerlPackageName()`;
+
+	use strict;
+	use warnings;
+
+	use base 'DBIx::Class::Core';
 
 	__PACKAGE__->table('${1:`CamelToUnderscore(Filename())`}');
 	__PACKAGE__->add_columns(
@@ -22,12 +41,13 @@ snippet dbit
 
 	__PACKAGE__->set_primary_key(qw{$2});
 
+	1;
+
 # From aschrab
 # Column for DBIx::Class
 snippet dbic
 	${1:column} => {
-		data_type => '${2:varchar}',
-		size => ${3:undef},
+		data_type   => '${2:varchar}',
 		is_nullable => ${4:0},
 	},${5}
 
